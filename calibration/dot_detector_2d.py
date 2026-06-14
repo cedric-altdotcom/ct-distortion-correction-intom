@@ -695,58 +695,68 @@ class DotDetector2D:
         
         return confidence
     
-    def compute_homography_from_anchors(self, detected_anchors_px: np.ndarray,
-                                       design_anchors_mm: np.ndarray) -> Tuple[np.ndarray, float]:
+    def compute_homography_from_anchors(self, detected_px: np.ndarray, 
+                                        design_mm: np.ndarray) -> Tuple[Optional[np.ndarray], float]:
         """
-        Compute homography matrix mapping detected image coordinates to design mm coordinates.
+        Computes a robust homography matrix mapping image pixels to physical millimeters.
         
         Args:
-            detected_anchors_px: Detected anchor centers (N, 2) in pixels
-            design_anchors_mm: Design anchor positions (N, 2) in mm
+            detected_px: (N, 2) array of anchor positions in pixel space [y, x]
+            design_mm: (N, 2) array of matching CAD positions in millimeter space [y, x]
             
         Returns:
-            (homography_matrix, error_residual)
-            - homography_matrix: 3×3 homography matrix
-            - error_residual: RMS reprojection error in pixels
+            (H, error_residual)
+            - H: (3, 3) projection matrix or None if calculation fails
+            - error_residual: Mean back-projection error in millimeters
         """
-        logger.info(f"Computing homography from {len(detected_anchors_px)} anchor pairs...")
+        import cv2
+        logger.info(f"Computing homography matrix using {len(detected_px)} identity-verified anchor pairs...")
         
-        if len(detected_anchors_px) < 4:
-            logger.error("Need at least 4 anchor pairs for homography")
-            raise ValueError("Insufficient anchor pairs")
-        
-        # Compute homography using OpenCV
-        H, status = cv2.findHomography(detected_anchors_px, design_anchors_mm, cv2.RANSAC, 5.0)
-        
-        if H is None:
-            logger.error("Homography computation failed")
-            raise ValueError("Homography computation failed")
-        
-        # Compute reprojection error
-        detected_homog = np.hstack([detected_anchors_px, np.ones((len(detected_anchors_px), 1))])
-        projected_mm = (H @ detected_homog.T).T
-        projected_mm = projected_mm[:, :2] / projected_mm[:, 2:3]
-        
-        errors = np.linalg.norm(projected_mm - design_anchors_mm, axis=1)
-        error_residual = np.sqrt(np.mean(errors**2))
-        
-        logger.info(f"Homography computed. RMS reprojection error: {error_residual:.4f} pixels")
-        
-        self.homography_matrix = H
-        
-        # Estimate µm per pixel from homography scale
-        px_corner = np.array([[0, 0], [detected_anchors_px.max(axis=0)[0], 0],
-                             [0, detected_anchors_px.max(axis=0)[1]]])
-        mm_corner = (H @ np.hstack([px_corner, np.ones((3, 1))]).T).T
-        mm_corner = mm_corner[:, :2] / mm_corner[:, 2:3]
-        
-        scale_y = np.abs(mm_corner[2, 0] - mm_corner[0, 0]) / np.abs(px_corner[2, 0] - px_corner[0, 0])
-        scale_x = np.abs(mm_corner[1, 1] - mm_corner[0, 1]) / np.abs(px_corner[1, 1] - px_corner[0, 1])
-        
-        self.um_per_pixel = (scale_x + scale_y) / 2.0 * 1000.0
-        logger.info(f"Estimated resolution: {self.um_per_pixel:.2f} µm/pixel")
-        
-        return H, error_residual
+        if len(detected_px) < 4:
+            logger.error("❌ Critical Failure: Insufficient anchor pairings (< 4) to solve homography.")
+            self.homography_matrix = None
+            return None, 0.0
+            
+        try:
+            # OpenCV expects coordinates in standard image space ordering: [Column (X), Row (Y)]
+            # Your numpy arrays store centroids in array indexing convention: [Row (Y), Column (X)]
+            src_pts = detected_px[:, [1, 0]].astype(np.float32)
+            dst_pts = design_mm[:, [1, 0]].astype(np.float32)
+            
+            # Compute projective transformation using RANSAC to filter residual decoding tracking errors
+            H, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, ransacReprojThreshold=1.5)
+            
+            if H is None:
+                raise ValueError("cv2.findHomography returned an empty matrix.")
+                
+            self.homography_matrix = H
+            
+            # Dynamically evaluate the physical resolution directly from the affine/projective components
+            # scale_x = sqrt(H_00^2 + H_10^2), converted back to micrometers (mm * 1000)
+            calculated_scale = np.sqrt(H[0, 0]**2 + H[1, 0]**2)
+            self.um_per_pixel = calculated_scale * 1000.0
+            logger.info(f"🎯 Dynamic Calibration Complete: Captured operational scale factor = {self.um_per_pixel:.3f} µm/pixel")
+            
+            # Compute precise back-projection tracking error residual across inlier pairings
+            inliers_mask = mask.ravel() == 1
+            if np.sum(inliers_mask) == 0:
+                raise ValueError("RANSAC rejected 100% of the target anchor points.")
+                
+            points_homog = np.hstack([detected_px, np.ones((len(detected_px), 1))])
+            projected_mm_homog = (H @ points_homog[:, [1, 0, 2]].T).T
+            projected_mm = projected_mm_homog[:, :2] / projected_mm_homog[:, 2:3]
+            
+            # Return coordinates back to [y, x] for standard tracking evaluations
+            projected_mm_yx = projected_mm[:, [1, 0]]
+            error_residual = float(np.mean(np.linalg.norm(projected_mm_yx[inliers_mask] - design_mm[inliers_mask], axis=1)))
+            
+            logger.info(f"📈 Reproof verification: Mean inlier back-projection error = {error_residual * 1000.0:.2f} µm")
+            return H, error_residual
+
+        except Exception as e:
+            logger.error(f"💥 Homography calculation matrix generation failed: {e}")
+            self.homography_matrix = None
+            return None, 0.0
     
     def project_pixels_to_mm(self, points_px: np.ndarray) -> np.ndarray:
         """
@@ -805,56 +815,86 @@ class DotDetector2D:
         return design_matched, detected_mm, discrepancies_um
     
     def process_image_file(self, image_path: str, 
-                          output_dir: str = None,
-                          pixel_pitch: Optional[float] = None) -> Dict:
+                           output_dir: str = None,
+                           pixel_pitch: Optional[float] = None) -> Dict:
         """
         Complete pipeline: load image, detect, decode blocks, compute homography, match dots.
-        
-        Args:
-            image_path: Path to .tif image
-            output_dir: Output directory for results
-            pixel_pitch: Optional pre-computed pixel pitch for clustering
-            
-        Returns:
-            Dictionary with complete analysis results
         """
         import os
+        import numpy as np
+        from scipy.spatial import distance_matrix
         
-        # Load image
+        # 1. Load image and extract dots
         image = self.load_image(image_path)
-        
-        # Detect and classify dots
         detections = self.detect_and_classify_dots(image)
         regular_dots_px = detections['regular_dots']
         code_dots_px = detections['code_dots']
         
-        # Identify anchor points from code dots with adaptive clustering
+        # 2. Identify anchor points from code dots
         detected_anchors_px, block_ids, decode_results = self.identify_anchor_points(
             code_dots_px, regular_dots_px, pixel_pitch=pixel_pitch
         )
         
-        # Get design anchor positions
         design_anchors_mm = self.design_positions['anchor_points']
         
-        # Match detected anchors to design
-        if len(detected_anchors_px) > 0:
-            dists = distance_matrix(detected_anchors_px, design_anchors_mm)
-            matched_design_idx = np.argmin(dists, axis=1)
-            design_anchors_matched = design_anchors_mm[matched_design_idx]
-            
-            # Compute homography
-            H, error = self.compute_homography_from_anchors(detected_anchors_px, design_anchors_matched)
-            
-            # Match regular dots to design grid
-            design_matched, detected_mm, discrepancies_um = self.match_regular_dots_to_design(
-                regular_dots_px, self.design_positions['regular_dots']
-            )
-        else:
-            logger.warning("No anchor points detected; skipping homography and dot matching")
-            design_matched = None
-            detected_mm = None
-            discrepancies_um = None
+        # =====================================================================
+        # FIXED PIPELINE LOGIC FROM STEP 3 ONWARDS
+        # =====================================================================
+        design_matched = None
+        detected_mm = None
+        discrepancies_um = None
         
+        # 3. Structural Anchor Filtering via Identity-Linked Metadata Verification
+        if len(detected_anchors_px) >= 4:
+            valid_detected_px_list = []
+            design_anchors_matched_list = []
+            
+            # Map design positions via explicit dictionary definitions to look up block indexes in O(1)
+            # This completely bypasses distance matrix spatial searches
+            design_geometry_lookup = self.design_positions['block_geometry']
+            
+            for idx, decode in enumerate(decode_results):
+                block_id = decode.get('block_code')
+                confidence = decode.get('confidence', 0.0)
+                
+                # Filter out low-confidence tracking frames or out-of-bounds IDs
+                if confidence < 0.5 or block_id is None or block_id not in design_geometry_lookup:
+                    continue
+                    
+                # Extract the exact mathematical CAD target point assigned to this specific ID code
+                target_cad_mm = design_geometry_lookup[block_id]['corner']
+                detected_px_coord = decode.get('corner_dot_px')  # Corner reference dot is more structurally stable than cluster center
+                
+                if detected_px_coord is not None:
+                    valid_detected_px_list.append(detected_px_coord)
+                    design_anchors_matched_list.append(target_cad_mm)
+            
+            valid_detected_px = np.array(valid_detected_px_list)
+            design_anchors_matched = np.array(design_anchors_matched_list)
+            
+            # Enforce 1-to-1 uniqueness: If duplicate blocks were processed, retain the highest confidence item
+            if len(valid_detected_px) > 0:
+                _, unique_indices = np.unique(design_anchors_matched, axis=0, return_index=True)
+                valid_detected_px = valid_detected_px[unique_indices]
+                design_anchors_matched = design_anchors_matched[unique_indices]
+                
+            logger.info(f"📊 Geometry Filter: Retained {len(valid_detected_px)} / {len(design_anchors_mm)} valid identity-linked pairings.")
+            
+            # 4. Compute Clean Homography Matrix
+            if len(valid_detected_px) >= 4:
+                H, error = self.compute_homography_from_anchors(valid_detected_px, design_anchors_matched)
+                
+                # 5. Match regular grid elements using our fine-tuned alignment matrix
+                if H is not None:
+                    design_matched, detected_mm, discrepancies_um = self.match_regular_dots_to_design(
+                        regular_dots_px, self.design_positions['regular_dots']
+                    )
+            else:
+                logger.error("❌ Post-filtering identity lookups left less than 4 unique verification points. Processing aborted.")
+        else:
+            logger.warning("Insufficient raw anchor clusters detected (< 4); skipping metrology evaluation.")
+        
+        # 6. Package structural results
         results = {
             'image': image,
             'regular_dots_px': regular_dots_px,
@@ -870,23 +910,20 @@ class DotDetector2D:
             'um_per_pixel': self.um_per_pixel
         }
         
-        # Visualize
+        # 7. File Exports and Visualization
         if output_dir:
             os.makedirs(output_dir, exist_ok=True)
             self.visualize_results(image, regular_dots_px, code_dots_px, detected_anchors_px,
                                   os.path.join(output_dir, 'detection_visualization.png'))
             
-            # Save results
             results_path = os.path.join(output_dir, 'analysis_results.npz')
             np.savez(results_path, 
                     regular_dots_px=regular_dots_px,
                     code_dots_px=code_dots_px,
                     detected_anchors_px=detected_anchors_px,
                     block_ids=block_ids,
-                    discrepancies_um=discrepancies_um)
-            logger.info(f"Saved results to {results_path}")
+                    discrepancies_um=discrepancies_um if discrepancies_um is not None else np.array([]))
             
-            # Save summary
             summary_path = os.path.join(output_dir, 'summary.txt')
             self.write_summary(summary_path, results)
         

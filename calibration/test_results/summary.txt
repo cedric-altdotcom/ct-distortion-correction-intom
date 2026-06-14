@@ -1,0 +1,591 @@
+================================================================================
+CODED CALIBRATION PLATE ANALYSIS SUMMARY
+Dot-Plate 500-1000 (8×10 macro-grid)
+================================================================================
+
+DETECTION RESULTS:
+  Regular dots detected: 176
+  Code dots detected: 6762
+  Block anchors identified: 188
+  Block IDs decoded: [np.int64(12), np.int64(73), np.int64(11), np.int64(33), np.int64(31), np.int64(37), np.int64(11), np.int64(11), np.int64(33), np.int64(33), np.int64(71), np.int64(51), np.int64(12), np.int64(35), np.int64(77), np.int64(33), np.int64(31), np.int64(43), np.int64(73), np.int64(77), np.int64(67), np.int64(43), np.int64(31), np.int64(33), np.int64(67), np.int64(65), np.int64(67), np.int64(10), np.int64(25), np.int64(61), np.int64(61), np.int64(37), np.int64(67), np.int64(37), np.int64(55), np.int64(31), np.int64(67), np.int64(74), np.int64(32), np.int64(33), np.int64(14), np.int64(13), np.int64(41), np.int64(41), np.int64(41), np.int64(73), np.int64(31), np.int64(74), np.int64(33), np.int64(73), np.int64(31), np.int64(31), np.int64(67), np.int64(65), np.int64(65), np.int64(71), np.int64(12), np.int64(37), np.int64(33), np.int64(67), np.int64(33), np.int64(33), np.int64(61), np.int64(13), np.int64(67), np.int64(16), np.int64(35), np.int64(67), np.int64(65), np.int64(16), np.int64(14), np.int64(67), np.int64(71), np.int64(33), np.int64(33), np.int64(41), np.int64(41), np.int64(13), np.int64(73), np.int64(71), np.int64(41), np.int64(71), np.int64(47), np.int64(37), np.int64(33), np.int64(33), np.int64(61), np.int64(71), np.int64(47), np.int64(67), np.int64(33), np.int64(3), np.int64(31), np.int64(67), np.int64(15), np.int64(17), np.int64(43), np.int64(67), np.int64(31), np.int64(31), np.int64(33), np.int64(67), np.int64(37), np.int64(37), np.int64(13), np.int64(16), np.int64(33), np.int64(11), np.int64(33), np.int64(10), np.int64(61), np.int64(52), np.int64(67), np.int64(67), np.int64(33), np.int64(67), np.int64(43), np.int64(33), np.int64(41), np.int64(14), np.int64(67), np.int64(67), np.int64(11), np.int64(67), np.int64(67), np.int64(67), np.int64(67), np.int64(31), np.int64(11), np.int64(31), np.int64(65), np.int64(67), np.int64(33), np.int64(13), np.int64(33), np.int64(61), np.int64(67), np.int64(33), np.int64(15), np.int64(67), np.int64(52), np.int64(65), np.int64(43), np.int64(67), np.int64(65), np.int64(65), np.int64(14), np.int64(33), np.int64(35), np.int64(41), np.int64(73), np.int64(15), np.int64(7), np.int64(67), np.int64(33), np.int64(37), np.int64(16), np.int64(31), np.int64(43), np.int64(31), np.int64(73), np.int64(7), np.int64(33), np.int64(65), np.int64(45), np.int64(33), np.int64(33), np.int64(33), np.int64(31), np.int64(65), np.int64(37), np.int64(41), np.int64(73), np.int64(67), np.int64(65), np.int64(61), np.int64(65), np.int64(43), np.int64(21), np.int64(31), np.int64(67), np.int64(33), np.int64(33), np.int64(67), np.int64(67), np.int64(74), np.int64(73), np.int64(43)]
+
+BLOCK DECODE DETAILS:
+  Block 0: ID=12, Rotation=179.7°, Confidence=0.333
+    LSB: [0, 1, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 1: ID=73, Rotation=0.3°, Confidence=0.833
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 0, 0, 0]
+  Block 2: ID=11, Rotation=135.6°, Confidence=0.333
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 3: ID=33, Rotation=153.4°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 4: ID=31, Rotation=135.1°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 5: ID=37, Rotation=153.5°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 6: ID=11, Rotation=179.9°, Confidence=0.333
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 7: ID=11, Rotation=90.0°, Confidence=0.333
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 8: ID=33, Rotation=153.7°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 9: ID=33, Rotation=153.5°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 10: ID=71, Rotation=90.3°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [1, 1, 1, 1, 0, 0]
+  Block 11: ID=51, Rotation=135.0°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 0, 1, 0, 0, 0]
+  Block 12: ID=12, Rotation=180.0°, Confidence=0.333
+    LSB: [0, 1, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 13: ID=35, Rotation=153.5°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 14: ID=77, Rotation=0.2°, Confidence=1.000
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 1, 1, 0, 0]
+  Block 15: ID=33, Rotation=153.5°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 16: ID=31, Rotation=135.0°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 17: ID=43, Rotation=170.6°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 1]
+    MSB: [0, 0, 1, 1, 1, 1]
+  Block 18: ID=73, Rotation=0.3°, Confidence=1.000
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 1, 0, 0]
+  Block 19: ID=77, Rotation=0.3°, Confidence=1.000
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 1, 0, 0, 0]
+  Block 20: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 21: ID=43, Rotation=168.8°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 1]
+    MSB: [0, 0, 1, 1, 1, 0]
+  Block 22: ID=31, Rotation=135.0°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 23: ID=33, Rotation=153.6°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 24: ID=67, Rotation=161.3°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 25: ID=65, Rotation=166.1°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 26: ID=67, Rotation=161.6°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 27: ID=10, Rotation=179.9°, Confidence=0.833
+    LSB: [0, 1, 1, 1, 1, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 28: ID=25, Rotation=179.9°, Confidence=0.500
+    LSB: [1, 0, 1, 0, 0, 0]
+    MSB: [0, 1, 0, 0, 0, 0]
+  Block 29: ID=61, Rotation=168.9°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 1, 1, 1, 1, 0]
+  Block 30: ID=61, Rotation=161.8°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 31: ID=37, Rotation=135.1°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 32: ID=67, Rotation=162.0°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 33: ID=37, Rotation=153.5°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 34: ID=55, Rotation=90.5°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [1, 0, 1, 0, 0, 0]
+  Block 35: ID=31, Rotation=135.1°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 36: ID=67, Rotation=162.0°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 37: ID=74, Rotation=0.4°, Confidence=0.667
+    LSB: [0, 0, 1, 0, 0, 0]
+    MSB: [1, 1, 1, 0, 0, 0]
+  Block 38: ID=32, Rotation=153.6°, Confidence=0.500
+    LSB: [0, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 39: ID=33, Rotation=153.6°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 40: ID=14, Rotation=179.7°, Confidence=0.667
+    LSB: [0, 1, 1, 1, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 41: ID=13, Rotation=90.6°, Confidence=0.500
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 42: ID=41, Rotation=168.9°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 0, 1, 1, 1, 0]
+  Block 43: ID=41, Rotation=169.1°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 0, 1, 1, 1, 0]
+  Block 44: ID=41, Rotation=135.2°, Confidence=0.333
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [0, 0, 1, 0, 0, 0]
+  Block 45: ID=73, Rotation=-179.9°, Confidence=1.000
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 1, 1, 0]
+  Block 46: ID=31, Rotation=135.0°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 47: ID=74, Rotation=-179.8°, Confidence=1.000
+    LSB: [0, 0, 1, 0, 0, 0]
+    MSB: [1, 1, 1, 1, 1, 0]
+  Block 48: ID=33, Rotation=153.4°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 49: ID=73, Rotation=0.3°, Confidence=0.833
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 0, 0, 0]
+  Block 50: ID=31, Rotation=135.3°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 51: ID=31, Rotation=153.4°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 52: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 53: ID=65, Rotation=166.3°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 54: ID=65, Rotation=166.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 55: ID=71, Rotation=0.3°, Confidence=0.833
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 1, 0, 0]
+  Block 56: ID=12, Rotation=180.0°, Confidence=0.333
+    LSB: [0, 1, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 57: ID=37, Rotation=153.4°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 58: ID=33, Rotation=153.7°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 59: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 60: ID=33, Rotation=116.8°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 61: ID=33, Rotation=135.4°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 62: ID=61, Rotation=161.6°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 63: ID=13, Rotation=-0.1°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 1]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 64: ID=67, Rotation=161.6°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 65: ID=16, Rotation=179.7°, Confidence=0.500
+    LSB: [0, 1, 1, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 66: ID=35, Rotation=90.3°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 67: ID=67, Rotation=162.0°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 68: ID=65, Rotation=166.3°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 69: ID=16, Rotation=179.9°, Confidence=0.500
+    LSB: [0, 1, 1, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 70: ID=14, Rotation=179.8°, Confidence=0.667
+    LSB: [0, 1, 1, 1, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 71: ID=67, Rotation=161.6°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 72: ID=71, Rotation=0.2°, Confidence=1.000
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 1, 1, 1]
+  Block 73: ID=33, Rotation=116.7°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 74: ID=33, Rotation=153.6°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 75: ID=41, Rotation=169.0°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 0, 1, 1, 1, 0]
+  Block 76: ID=41, Rotation=168.9°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 0, 1, 1, 1, 0]
+  Block 77: ID=13, Rotation=179.9°, Confidence=0.500
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 78: ID=73, Rotation=0.2°, Confidence=1.000
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 1, 1, 0]
+  Block 79: ID=71, Rotation=-179.9°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [1, 1, 1, 0, 0, 0]
+  Block 80: ID=41, Rotation=168.8°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 0, 1, 1, 1, 0]
+  Block 81: ID=71, Rotation=0.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [1, 1, 1, 1, 0, 0]
+  Block 82: ID=47, Rotation=146.5°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 0, 1, 1, 0, 0]
+  Block 83: ID=37, Rotation=135.0°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 84: ID=33, Rotation=153.5°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 85: ID=33, Rotation=153.8°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 86: ID=61, Rotation=161.7°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 87: ID=71, Rotation=0.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [1, 1, 1, 1, 1, 1]
+  Block 88: ID=47, Rotation=146.5°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 0, 1, 1, 0, 0]
+  Block 89: ID=67, Rotation=161.6°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 90: ID=33, Rotation=153.6°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 91: ID=3, Rotation=168.8°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 1]
+    MSB: [0, 0, 0, 1, 1, 0]
+  Block 92: ID=31, Rotation=90.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 93: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 94: ID=15, Rotation=0.2°, Confidence=0.833
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 95: ID=17, Rotation=0.2°, Confidence=0.667
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 96: ID=43, Rotation=170.8°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 1]
+    MSB: [0, 0, 1, 1, 1, 1]
+  Block 97: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 98: ID=31, Rotation=135.0°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 99: ID=31, Rotation=135.0°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 100: ID=33, Rotation=153.6°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 101: ID=67, Rotation=161.8°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 102: ID=37, Rotation=0.2°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 103: ID=37, Rotation=90.2°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 104: ID=13, Rotation=0.1°, Confidence=0.500
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 105: ID=16, Rotation=180.0°, Confidence=0.500
+    LSB: [0, 1, 1, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 106: ID=33, Rotation=153.6°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 107: ID=11, Rotation=135.2°, Confidence=0.333
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 108: ID=33, Rotation=153.5°, Confidence=1.000
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 1, 1, 0]
+  Block 109: ID=10, Rotation=179.9°, Confidence=0.833
+    LSB: [0, 1, 1, 1, 1, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 110: ID=61, Rotation=161.7°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 111: ID=52, Rotation=-179.9°, Confidence=0.667
+    LSB: [0, 1, 0, 0, 0, 0]
+    MSB: [1, 0, 1, 1, 0, 0]
+  Block 112: ID=67, Rotation=161.9°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 113: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 114: ID=33, Rotation=153.5°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 115: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 116: ID=43, Rotation=170.7°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 1]
+    MSB: [0, 0, 1, 1, 1, 1]
+  Block 117: ID=33, Rotation=153.6°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 118: ID=41, Rotation=135.1°, Confidence=0.333
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [0, 0, 1, 0, 0, 0]
+  Block 119: ID=14, Rotation=180.0°, Confidence=0.667
+    LSB: [0, 1, 1, 1, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 120: ID=67, Rotation=161.6°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 121: ID=67, Rotation=161.6°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 122: ID=11, Rotation=135.0°, Confidence=0.333
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 123: ID=67, Rotation=161.8°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 124: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 125: ID=67, Rotation=161.8°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 126: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 127: ID=31, Rotation=135.2°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 128: ID=11, Rotation=90.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 129: ID=31, Rotation=134.9°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 130: ID=65, Rotation=166.1°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 131: ID=67, Rotation=161.8°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 132: ID=33, Rotation=135.2°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 133: ID=13, Rotation=0.5°, Confidence=0.500
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 134: ID=33, Rotation=135.2°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 135: ID=61, Rotation=169.0°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 1, 1, 1, 1, 0]
+  Block 136: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 137: ID=33, Rotation=153.6°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 138: ID=15, Rotation=90.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [1, 0, 0, 1, 0, 0]
+  Block 139: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 140: ID=52, Rotation=90.1°, Confidence=0.833
+    LSB: [0, 0, 1, 1, 0, 0]
+    MSB: [1, 0, 1, 1, 0, 0]
+  Block 141: ID=65, Rotation=166.3°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 142: ID=43, Rotation=172.1°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 1]
+    MSB: [0, 0, 1, 1, 1, 1]
+  Block 143: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 144: ID=65, Rotation=168.9°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 1, 0]
+  Block 145: ID=65, Rotation=166.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 146: ID=14, Rotation=180.0°, Confidence=0.667
+    LSB: [0, 1, 1, 1, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 147: ID=33, Rotation=153.7°, Confidence=1.000
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 1, 1, 0]
+  Block 148: ID=35, Rotation=153.6°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 149: ID=41, Rotation=168.8°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 0, 1, 1, 1, 0]
+  Block 150: ID=73, Rotation=90.3°, Confidence=0.833
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 0, 0, 0]
+  Block 151: ID=15, Rotation=90.2°, Confidence=0.833
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 152: ID=7, Rotation=153.6°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 0, 0, 1, 1, 0]
+  Block 153: ID=67, Rotation=161.9°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 154: ID=33, Rotation=153.7°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 155: ID=37, Rotation=134.9°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 156: ID=16, Rotation=179.9°, Confidence=0.500
+    LSB: [0, 1, 1, 0, 0, 0]
+    MSB: [1, 0, 0, 0, 0, 0]
+  Block 157: ID=31, Rotation=135.4°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 158: ID=43, Rotation=45.1°, Confidence=0.500
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [0, 0, 1, 0, 0, 0]
+  Block 159: ID=31, Rotation=45.0°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 160: ID=73, Rotation=116.9°, Confidence=0.833
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 0, 0, 0]
+  Block 161: ID=7, Rotation=63.6°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 0, 0, 1, 1, 0]
+  Block 162: ID=33, Rotation=153.8°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 163: ID=65, Rotation=166.1°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 164: ID=45, Rotation=168.9°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 0, 1, 1, 1, 0]
+  Block 165: ID=33, Rotation=90.2°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 166: ID=33, Rotation=153.8°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 167: ID=33, Rotation=90.2°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 168: ID=31, Rotation=0.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 169: ID=65, Rotation=166.1°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 170: ID=37, Rotation=135.1°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 171: ID=41, Rotation=170.8°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 0, 1, 1, 1, 1]
+  Block 172: ID=73, Rotation=0.3°, Confidence=1.000
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 1, 1, 0]
+  Block 173: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 174: ID=65, Rotation=166.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 175: ID=61, Rotation=168.9°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 0]
+    MSB: [0, 1, 1, 1, 1, 0]
+  Block 176: ID=65, Rotation=166.2°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 0, 0]
+    MSB: [0, 1, 1, 1, 0, 0]
+  Block 177: ID=43, Rotation=172.1°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 1]
+    MSB: [0, 0, 1, 1, 1, 1]
+  Block 178: ID=21, Rotation=116.6°, Confidence=0.333
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [0, 1, 0, 0, 0, 0]
+  Block 179: ID=31, Rotation=135.3°, Confidence=0.500
+    LSB: [1, 0, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 180: ID=67, Rotation=161.7°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 181: ID=33, Rotation=153.8°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 182: ID=33, Rotation=153.7°, Confidence=0.667
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 0, 0, 0, 0]
+  Block 183: ID=67, Rotation=161.9°, Confidence=0.833
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 0, 0]
+  Block 184: ID=67, Rotation=161.8°, Confidence=1.000
+    LSB: [1, 1, 1, 0, 0, 0]
+    MSB: [0, 1, 1, 0, 1, 0]
+  Block 185: ID=74, Rotation=90.3°, Confidence=0.833
+    LSB: [0, 0, 0, 1, 1, 0]
+    MSB: [1, 1, 1, 0, 0, 0]
+  Block 186: ID=73, Rotation=0.4°, Confidence=1.000
+    LSB: [1, 1, 0, 0, 0, 0]
+    MSB: [1, 1, 1, 1, 1, 0]
+  Block 187: ID=43, Rotation=172.1°, Confidence=1.000
+    LSB: [1, 1, 1, 1, 1, 1]
+    MSB: [0, 0, 1, 1, 1, 1]
+
+HOMOGRAPHY CALIBRATION:
+  Resolution: inf µm/pixel
+  Homography matrix:
+  [[-3.83951393e-02 -1.43772201e+00  2.29178082e+02]
+ [-2.45367680e-02 -1.68666295e+00  2.65841423e+02]
+ [-1.67619380e-04 -6.27959306e-03  1.00000000e+00]]
+
+SPATIAL DISCREPANCIES (µm):
+  Mean: dy=207.61µm, dx=22267.64µm
+  Std:  dy=325.78µm, dx=43076.37µm
+  Max:  182141.50µm
+  Min:  0.89µm
+
+================================================================================

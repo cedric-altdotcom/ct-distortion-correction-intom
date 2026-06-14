@@ -1,0 +1,10 @@
+{
+    "summary": {
+        "total_matched_dots": 76,
+        "mean_error_um": 104948.38791010896,
+        "median_error_um": 98107.05456604456,
+        "max_error_um": 241192.0014946623,
+        "std_dev_um": 73155.51478375259,
+        "estimated_resolution_um_per_px": 46.32954223164145
+    }
+}
