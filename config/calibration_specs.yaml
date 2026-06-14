@@ -1,0 +1,26 @@
+# CT Calibration Plate Specifications
+# Dimension-based specs only (no material info)
+
+plate:
+  size_mm: [200.0, 200.0]  # Width, Height in mm
+  thickness_mm: 3.0
+
+grid:
+  rows: 8
+  cols: 8
+  pitch_mm: 5.0  # Center-to-center spacing
+
+spheres:
+  diameter_mm: 3.0
+  tolerance_mm: 0.15e-3  # ±0.15 µm sphericity
+  distance_accuracy_mm: 0.3e-3  # ±0.3 µm certified
+
+scanner:
+  field_of_view_mm: 300.0
+  voxel_size_mm: 0.12  # 120 µm (will be auto-detected from actual scan)
+
+# Auto-calculated from above
+_computed:
+  total_spheres: 64
+  grid_width_mm: 175.0  # (cols-1) * pitch
+  grid_height_mm: 175.0  # (rows-1) * pitch

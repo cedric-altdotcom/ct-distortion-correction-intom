@@ -1,0 +1,56 @@
+Part 2: Bug-Fixing Procedure & History
+
+Here is the exact progression of how we diagnosed, refactored, and solved the pipeline anomalies, along with the engineering outcome of each step.
+Step 1: The Code Deletion Recovery (NameError)
+
+    The Symptom: NameError: name 'centers_refined' is not defined
+
+    The Cause: During a previous structural formatting or indentation cleanup, the crucial lines of code responsible for instantiating the SphereDetector and extracting the sphere center coordinates were accidentally deleted from the main() function execution loop.
+
+    Our Procedure: We manually re-inserted the missing instantiation block:
+    Python
+
+    detector = SphereDetector()
+    centers_raw = detector.detect_spheres(volume)
+    centers_refined = detector.refine_centers(volume, centers_raw)
+
+    The Outcome: The script successfully compiled and ran to completion for the first time, establishing a baseline execution.
+
+Step 2: The Coordinate Space Alignment (30mm Global Translation Error)
+
+    The Symptom: The initial vector field graphic showed massive parallel arrows pointing toward the top right corner, and the heatmaps were completely clipped solid blocks. The logs read: Mean distortion: dy=29.986mm, dx=29.986mm.
+
+    The Cause: A coordinate space mismatch. The template generator calculated expected positions centered around (0,0) mm, but the detected positions were being read directly from raw voxel coordinates starting at (0,0) at the corner of the volume. Multiplying raw pixels by the voxel size yielded a huge, artificial +30 mm shift.
+
+    Our Procedure: We normalized the detected voxel space coordinates by subtracting half of the canvas width/height (250 px) before translating the values to millimeters:
+    Python
+
+    centered_voxels = detected_centers_voxels[:, 1:] - 250.0
+    detected = centered_voxels * voxel_size_mm
+
+    The Outcome: The massive 30 mm false translation error dropped to near zero, exposing the actual localized variations underneath.
+
+Step 3: Spatial Nearest-Neighbor Alignment (Index Mismatch & Sorting Bugs)
+
+    The Symptom: The vector field looked cleanly split in half—the top rows pulled right, the bottom rows pulled left, and the X-distortion heatmap suffered a severe scale blowout (22.5 mm error spikes at isolated edges).
+
+    The Cause: The original code relied on a fragile sorting assumption (expected[:n_match]), blindly guessing that the connected component detector would return spheres in the exact same index order as the ideal geometric grid array. It didn't, causing mismatched point pairing.
+
+    Our Procedure: We stripped out the array slicing placeholder and implemented a robust, proximity-based Euclidean distance matrix matching algorithm using scipy.spatial.distance_matrix:
+    Python
+
+    dists = distance_matrix(detected, expected)
+    matched_expected_idx = np.argmin(dists, axis=1)
+    expected_matched = expected[matched_expected_idx]
+
+    The Outcome: Index mismatches vanished. The vector paths perfectly synchronized with their physical counterparts, lowering the maximum local distortion scale to fractions of a millimeter.
+
+Step 4: Dynamic Canvas Cropping (Postage Stamp Visuals)
+
+    The Symptom: The mathematical errors were finally correct, but the actual active 8×8 calibration grid ( 35 mm wide) looked like a microscopic square floating in a giant, empty 300 mm field-of-view canvas window.
+
+    The Cause: The plotting limits were hardcoded to scale across the scanner's full detector width (detector_fov_mm = 300), completely swallowing up the details of our downscaled test pattern volume.
+
+    Our Procedure: We implemented a dynamic bounding box method (_get_dynamic_bounds) directly into the DistortionVisualizer class. It reads the minimum and maximum data points present in the current run and dynamically sets the window zoom with a clean 20% padding margin.
+
+    The Outcome: Success. The visualizer generated stunning, high-resolution scientific heatmaps and vector fields blown up across the full image size, cleanly mapping out the concentric symmetries of our simulated pincushion distortion.
