@@ -8,7 +8,11 @@ plate:
 grid:
   rows: 8
   cols: 8
+<<<<<<< HEAD
   pitch_mm: 5.0  # Center-to-center spacing
+=======
+  pitch_mm: 25.0  # Center-to-center spacing
+>>>>>>> a64f9f97cb8a03f6bd3bddf246cecf7789dd5ffc
 
 spheres:
   diameter_mm: 3.0

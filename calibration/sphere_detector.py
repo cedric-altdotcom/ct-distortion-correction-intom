@@ -31,8 +31,13 @@ class SphereDetector:
         volume_norm = (volume - vol_min) / (vol_max - vol_min + 1e-8)
         
         # Threshold
+<<<<<<< HEAD
         # Dynamic Midpoint Threshold
         binary = volume_norm > 0.01
+=======
+        threshold = self.detection_config.min_intensity_threshold / 1000.0
+        binary = volume_norm > threshold
+>>>>>>> a64f9f97cb8a03f6bd3bddf246cecf7789dd5ffc
         
         # Morphological operations
         radius = self.detection_config.morphological_radius

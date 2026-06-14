@@ -60,6 +60,7 @@ def create_synthetic_calibration_volume(specs: dict, size: Tuple[int, int, int] 
             x_mm = start_x + j * pitch
             
             # Convert to voxels
+<<<<<<< HEAD
             # Convert to voxels
             y_vox_ideal = center_y + y_mm / voxel_size
             x_vox_ideal = center_x + x_mm / voxel_size
@@ -78,6 +79,19 @@ def create_synthetic_calibration_volume(specs: dict, size: Tuple[int, int, int] 
             y_max = min(size[1], int(np.ceil(y_vox + sphere_radius_voxels)))
             x_min = max(0, int(np.floor(x_vox - sphere_radius_voxels)))
             x_max = min(size[2], int(np.ceil(x_vox + sphere_radius_voxels)))
+=======
+            y_vox = center_y + y_mm / voxel_size
+            x_vox = center_x + x_mm / voxel_size
+            z_vox = center_z
+            
+            # Draw sphere (simple: fill within radius)
+            z_min = max(0, int(z_vox - sphere_radius_voxels))
+            z_max = min(size[0], int(z_vox + sphere_radius_voxels))
+            y_min = max(0, int(y_vox - sphere_radius_voxels))
+            y_max = min(size[1], int(y_vox + sphere_radius_voxels))
+            x_min = max(0, int(x_vox - sphere_radius_voxels))
+            x_max = min(size[2], int(x_vox + sphere_radius_voxels))
+>>>>>>> a64f9f97cb8a03f6bd3bddf246cecf7789dd5ffc
             
             for z in range(z_min, z_max):
                 for y in range(y_min, y_max):
@@ -101,15 +115,23 @@ def main():
     logger.info(f"Loaded specs: {specs['grid']['rows']}x{specs['grid']['cols']} grid")
     
     # Create synthetic volume
+<<<<<<< HEAD
     volume = create_synthetic_calibration_volume(specs, size=(400, 500, 500))
     
     # --- RESTORED DETECTION LINES START HERE ---
+=======
+    volume = create_synthetic_calibration_volume(specs)
+    
+>>>>>>> a64f9f97cb8a03f6bd3bddf246cecf7789dd5ffc
     # Detect spheres
     detector = SphereDetector()
     centers_raw = detector.detect_spheres(volume)
     centers_refined = detector.refine_centers(volume, centers_raw)
     logger.info(f"Detected {len(centers_refined)} spheres")
+<<<<<<< HEAD
     # --- RESTORED DETECTION LINES END HERE ---
+=======
+>>>>>>> a64f9f97cb8a03f6bd3bddf246cecf7789dd5ffc
     
     # Extract distortion
     extractor = DistortionExtractor(specs)
